@@ -12,16 +12,7 @@ const getToken = () => {
   return localStorage.getItem("token");
 };
 
-// // API Functions
-// export const createBook = async (bookData) => {
-//   try {
-//     const response = await axiosInstance.post("books", bookData);
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error creating book:", error);
-//     throw error;
-//   }
-// };
+
 export const createBook = async (bookData) => {
   try {
     console.log("Creating book with data:", bookData);
@@ -35,20 +26,6 @@ export const createBook = async (bookData) => {
 };
 
 
-// export const getBooks = async (sortBy) => {
-//   const token = getToken();
-//   try {
-//     const response = await axiosInstance.get(`books?sortBy=${sortBy}`, {
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error fetching books:", error);
-//     throw error;
-//   }
-// };
 
 export const getBooks = async () => {
   const token = getToken();

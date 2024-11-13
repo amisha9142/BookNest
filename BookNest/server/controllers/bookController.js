@@ -51,29 +51,6 @@ exports.createBook = async (req, res) => {
 };
 
 
-// exports.getBooks = async (req, res) => {
-//   const { sortBy } = req.query;
-//   try {
-//     const books = await Book.find({ isDeleted: false }).sort({
-//       sellPrice: sortCriteria,
-//     });
-
-
-//     res.status(200).json({
-//       success: true,
-//       message: "Books fetched successfully",
-//       data: books, 
-//     });
-//   } catch (error) {
-//     console.error("Error in getBooks:", error.message);
-//     res.status(500).json({
-//       success: false,
-//       error: "Internal server error",
-//     });
-//   }
-// };
-
-
 exports.getBooks = async (req, res) => {
   try {
     const books = await Book.find({ isDeleted: false });

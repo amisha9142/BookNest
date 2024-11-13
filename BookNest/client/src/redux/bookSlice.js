@@ -6,18 +6,6 @@ import {
   deleteBook as deleteBookApi,
 } from "./api/bookApi"; 
 
-// Thunk for fetching stocks
-// export const fetchBooksThunk = createAsyncThunk(
-//   "books/fetchBooks",
-//   async (sortBy, { rejectWithValue }) => {
-//     try {
-//       const response = await getBooks(sortBy);
-//       return response.data; 
-//     } catch (error) {
-//       return rejectWithValue(error.response.data); 
-//     }
-//   }
-// );
 
 export const fetchBooksThunk = createAsyncThunk(
   "books/fetchBooks",
@@ -90,10 +78,7 @@ const bookSlice = createSlice({
       state.status = "loading";
       state.error = null;
     })
-    // .addCase(fetchBooksThunk.fulfilled, (state, action) => {
-    //   state.status = "succeeded";
-    //   state.books = action.payload; 
-    // })
+   
     .addCase(fetchBooksThunk.fulfilled, (state, action) => {
       state.status = "succeeded";
       state.books = action.payload.data; // This should match the response structure
@@ -108,9 +93,7 @@ const bookSlice = createSlice({
         state.status = "loading"; 
         state.error = null; 
       })
-      // .addCase(addBookThunk.fulfilled, (state, action) => {
-      //   state.books.push(action.payload); 
-      // })
+    
 
       .addCase(addBookThunk.fulfilled, (state, action) => {
         if (Array.isArray(state.books)) {
