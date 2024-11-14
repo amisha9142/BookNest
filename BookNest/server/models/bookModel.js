@@ -9,5 +9,6 @@ const bookSchema = new mongoose.Schema({
   isDeleted: { type: Boolean, default: false }
 });
 
+
 const Book = mongoose.model("Book", bookSchema);
 module.exports = Book;

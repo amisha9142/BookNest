@@ -18,14 +18,14 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import { useDispatch, useSelector } from "react-redux";
 import TemporaryDrawer from "./TemporaryDrawer";
 import { logout } from "../redux/userSlice";
 import CreateBookDialog from "./CreateBookDialog";
 
 // Initialize socket connection
-const socket = io("http://localhost:5000");
+// const socket = io("http://localhost:5000");
 
 const Header = () => {
   const [openCreateStockDialog, setOpenCreateStockDialog] = useState(false);
@@ -81,19 +81,19 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    socket.on("newStockNotification", (notification) => {
-      setNotifications((prevNotifications) => [
-        ...prevNotifications,
-        notification,
-      ]);
-      setNotificationsCount((prevCount) => prevCount + 1);
-    });
+  // useEffect(() => {
+  //   socket.on("newStockNotification", (notification) => {
+  //     setNotifications((prevNotifications) => [
+  //       ...prevNotifications,
+  //       notification,
+  //     ]);
+  //     setNotificationsCount((prevCount) => prevCount + 1);
+  //   });
 
-    return () => {
-      socket.off("newStockNotification");
-    };
-  }, []);
+  //   return () => {
+  //     socket.off("newStockNotification");
+  //   };
+  // }, []);
 
   return (
     <header className="md:p-4 p-3 flex items-center justify-between shadow-lg">
@@ -142,7 +142,7 @@ const Header = () => {
           horizontal: "center",
         }}
       >
-        <MenuList>
+        {/* <MenuList>
           {notifications.length > 0 ? (
             notifications.map((notification, index) => (
               <MenuItem key={index} onClick={() => markAsRead(index)}>
@@ -157,7 +157,7 @@ const Header = () => {
               <ListItemText primary="No new notifications" />
             </MenuItem>
           )}
-        </MenuList>
+        </MenuList> */}
       </Popover>
 
       <Popover
