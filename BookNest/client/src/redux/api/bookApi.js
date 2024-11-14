@@ -1,8 +1,11 @@
 // src/utils/stockApi.js
 import axios from 'axios';
+import {API_BASE_URL} from "../../../config"
+
 
 // Create an Axios instance
-const BASE_URL = "http://localhost:5000/api/v1/book/";
+console.log(API_BASE_URL); 
+const BASE_URL = `${API_BASE_URL}/v1/book/`;
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
 });
@@ -24,7 +27,6 @@ export const createBook = async (bookData) => {
     throw error;
   }
 };
-
 
 
 export const getBooks = async () => {
